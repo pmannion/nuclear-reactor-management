@@ -35,14 +35,6 @@ A Rails application for managing nuclear reactor operations with role-based acce
    rails console
    ```
 
-### Docker Support
-
-Build and run with Docker:
-```bash
-docker build -t nuclear-reactor-management .
-docker run -it nuclear-reactor-management rails console
-```
-
 ### Role Permissions
 
 **Engineers** - Primary reactor operators with full operational permissions:
