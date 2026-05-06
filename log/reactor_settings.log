@@ -1,0 +1,43 @@
+{"timestamp":"2026-05-06T13:10:29.846Z","user":"Sarah Johnson","user_role":"manager","changes":{"id":[null,8],"max_power":[null,1800],"min_power":[null,200],"temperature":[null,765],"status":[null,"normal"],"updated_by":[null,60],"last_maintenance_date":[null,"2026-05-05"],"maintenance_temperature_offset":[null,115]}}
+{"timestamp":"2026-05-06T13:10:29.849Z","user":"Michael Chen","user_role":"engineer","changes":{"max_power":[1800,697],"temperature":[765,848],"updated_by":[60,62],"maintenance_temperature_offset":[115,83]}}
+{"timestamp":"2026-05-06T13:10:30.367Z","user":"Emma Rodriguez","user_role":"engineer","changes":{"max_power":[697,1657],"temperature":[848,935],"updated_by":[62,63],"maintenance_temperature_offset":[83,87]}}
+{"timestamp":"2026-05-06T13:10:30.886Z","user":"David Thompson","user_role":"engineer","changes":{"max_power":[1657,1120],"temperature":[935,1023],"updated_by":[63,64],"maintenance_temperature_offset":[87,88]}}
+{"timestamp":"2026-05-06T13:10:31.404Z","user":"Lisa Park","user_role":"engineer","changes":{"max_power":[1120,1776],"temperature":[1023,1099],"updated_by":[64,65],"maintenance_temperature_offset":[88,76]}}
+{"timestamp":"2026-05-06T13:10:31.924Z","user":"James Anderson","user_role":"engineer","changes":{"max_power":[1776,649],"temperature":[1099,1203],"updated_by":[65,66],"maintenance_temperature_offset":[76,104]}}
+{"timestamp":"2026-05-06T13:10:32.442Z","user":"Sofia Petrov","user_role":"engineer","changes":{"max_power":[649,783],"temperature":[1203,1279],"updated_by":[66,67],"maintenance_temperature_offset":[104,76]}}
+{"timestamp":"2026-05-06T13:10:32.450Z","user":"Michael Chen","user_role":"engineer","changes":{"max_power":[783,1572],"temperature":[1279,1373],"updated_by":[67,62],"maintenance_temperature_offset":[76,94]}}
+{"timestamp":"2026-05-06T13:10:32.969Z","user":"Emma Rodriguez","user_role":"engineer","changes":{"max_power":[1572,1522],"temperature":[1373,1456],"updated_by":[62,63],"maintenance_temperature_offset":[94,83]}}
+{"timestamp":"2026-05-06T13:10:33.508Z","user":"David Thompson","user_role":"engineer","changes":{"max_power":[1522,974],"temperature":[1456,1575],"updated_by":[63,64],"maintenance_temperature_offset":[83,119]}}
+{"timestamp":"2026-05-06T13:10:34.027Z","user":"Lisa Park","user_role":"engineer","changes":{"max_power":[974,1327],"temperature":[1575,1685],"updated_by":[64,65],"maintenance_temperature_offset":[119,110]}}
+{"timestamp":"2026-05-06T13:10:34.548Z","user":"James Anderson","user_role":"engineer","changes":{"max_power":[1327,1840],"temperature":[1685,1794],"updated_by":[65,66],"maintenance_temperature_offset":[110,109]}}
+{"timestamp":"2026-05-06T13:10:35.070Z","user":"Sofia Petrov","user_role":"engineer","changes":{"max_power":[1840,1499],"temperature":[1794,1908],"updated_by":[66,67],"maintenance_temperature_offset":[109,114]}}
+{"timestamp":"2026-05-06T13:10:35.080Z","user":"Michael Chen","user_role":"engineer","changes":{"max_power":[1499,1372],"temperature":[1908,2012],"updated_by":[67,62],"maintenance_temperature_offset":[114,104]}}
+{"timestamp":"2026-05-06T13:10:35.599Z","user":"Emma Rodriguez","user_role":"engineer","changes":{"max_power":[1372,1299],"temperature":[2012,2103],"updated_by":[62,63],"maintenance_temperature_offset":[104,91]}}
+{"timestamp":"2026-05-06T13:10:36.119Z","user":"David Thompson","user_role":"engineer","changes":{"max_power":[1299,1451],"temperature":[2103,2219],"updated_by":[63,64],"maintenance_temperature_offset":[91,116]}}
+{"timestamp":"2026-05-06T13:10:36.636Z","user":"Lisa Park","user_role":"engineer","changes":{"max_power":[1451,852],"temperature":[2219,2295],"updated_by":[64,65],"maintenance_temperature_offset":[116,76]}}
+{"timestamp":"2026-05-06T13:10:37.155Z","user":"James Anderson","user_role":"engineer","changes":{"max_power":[852,1780],"temperature":[2295,2385],"updated_by":[65,66],"maintenance_temperature_offset":[76,90]}}
+{"timestamp":"2026-05-06T13:10:37.673Z","user":"Sofia Petrov","user_role":"engineer","changes":{"max_power":[1780,618],"temperature":[2385,2505],"updated_by":[66,67],"maintenance_temperature_offset":[90,120]}}
+{"timestamp":"2026-05-06T13:10:37.682Z","user":"Michael Chen","user_role":"engineer","changes":{"max_power":[618,804],"temperature":[2505,2615],"updated_by":[67,62],"maintenance_temperature_offset":[120,110]}}
+{"timestamp":"2026-05-06T13:10:38.200Z","user":"Emma Rodriguez","user_role":"engineer","changes":{"max_power":[804,1842],"temperature":[2615,2712],"updated_by":[62,63],"maintenance_temperature_offset":[110,97]}}
+{"timestamp":"2026-05-06T13:10:38.735Z","user":"David Thompson","user_role":"engineer","changes":{"max_power":[1842,1687],"temperature":[2712,2799],"updated_by":[63,64],"maintenance_temperature_offset":[97,87]}}
+{"timestamp":"2026-05-06T13:10:39.255Z","user":"Lisa Park","user_role":"engineer","changes":{"max_power":[1687,1130],"temperature":[2799,2882],"updated_by":[64,65],"maintenance_temperature_offset":[87,83]}}
+{"timestamp":"2026-05-06T13:10:39.762Z","user":"James Anderson","user_role":"engineer","changes":{"max_power":[1130,762],"temperature":[2882,3004],"updated_by":[65,66],"maintenance_temperature_offset":[83,122]}}
+{"timestamp":"2026-05-06T13:10:40.280Z","user":"Sofia Petrov","user_role":"engineer","changes":{"max_power":[762,1462],"temperature":[3004,3117],"updated_by":[66,67],"maintenance_temperature_offset":[122,113]}}
+{"timestamp":"2026-05-06T13:10:40.296Z","user":"Michael Chen","user_role":"engineer","changes":{"max_power":[1462,994],"temperature":[3117,3228],"updated_by":[67,62],"maintenance_temperature_offset":[113,111]}}
+{"timestamp":"2026-05-06T13:10:40.815Z","user":"Emma Rodriguez","user_role":"engineer","changes":{"max_power":[994,1153],"temperature":[3228,3341],"updated_by":[62,63],"maintenance_temperature_offset":[111,113]}}
+{"timestamp":"2026-05-06T13:10:41.332Z","user":"David Thompson","user_role":"engineer","changes":{"max_power":[1153,899],"temperature":[3341,3418],"updated_by":[63,64],"maintenance_temperature_offset":[113,77]}}
+{"timestamp":"2026-05-06T13:10:41.857Z","user":"Lisa Park","user_role":"engineer","changes":{"max_power":[899,1834],"temperature":[3418,3533],"updated_by":[64,65],"maintenance_temperature_offset":[77,115]}}
+{"timestamp":"2026-05-06T13:10:42.374Z","user":"James Anderson","user_role":"engineer","changes":{"max_power":[1834,1186],"temperature":[3533,3615],"updated_by":[65,66],"maintenance_temperature_offset":[115,82]}}
+{"timestamp":"2026-05-06T13:10:42.892Z","user":"Sofia Petrov","user_role":"engineer","changes":{"max_power":[1186,1813],"temperature":[3615,3719],"updated_by":[66,67],"maintenance_temperature_offset":[82,104]}}
+{"timestamp":"2026-05-06T13:10:43.911Z","user":"Alex Wilson","user_role":"intern","changes":{"max_power":[1813,2500],"temperature":[3719,4000],"status":["normal","critical"],"updated_by":[67,61]}}
+{"timestamp":"2026-05-06T13:10:42.911Z","user":"Sofia Petrov","user_role":"engineer","changes":{"max_power":[2500, 1200],"temperature":[4000,300],"status":["normal","critical"],"updated_by":[67,61]}, result: 'update_fail'}
+{"timestamp":"2026-05-06T13:12:42.911Z","user":"Sofia Petrov","user_role":"engineer","changes":{"max_power":[2500, 1200],"temperature":[4000,300],"status":["normal","critical"],"updated_by":[67,61]}, result: 'update_fail'}
+{"timestamp":"2026-05-06T13:14:42.911Z","user":"Sofia Petrov","user_role":"engineer","changes":{"max_power":[2500, 1200],"temperature":[4000,300],"status":["normal","critical"],"updated_by":[67,61]}, result: 'update_fail'}
+{"timestamp":"2026-05-06T13:16:42.911Z","user":"Sofia Petrov","user_role":"engineer","changes":{"max_power":[2500, 1200],"temperature":[4000,300],"status":["normal","critical"],"updated_by":[67,61]}, result: 'update_fail'}
+{"timestamp":"2026-05-06T13:18:42.911Z","user":"Sofia Petrov","user_role":"engineer","changes":{"max_power":[2500, 1200],"temperature":[4000,300],"status":["normal","critical"],"updated_by":[67,61]}, result: 'update_fail'}
+{"timestamp":"2026-05-06T13:20:42.911Z","user":"Sofia Petrov","user_role":"engineer","changes":{"max_power":[2500, 1200],"temperature":[4000,300],"status":["normal","critical"],"updated_by":[67,61]}, result: 'update_fail'}
+
+
+
+
+
