@@ -1,5 +1,47 @@
 # Nuclear Reactor Management System - Security Interview Challenge
 
+A Rails application for managing nuclear reactor operations with role-based access controls and safety monitoring.
+
+## Quick Start
+
+### Prerequisites
+- Ruby 3.2.0 (see `.ruby-version`)
+- Rails 7.1+
+- SQLite3
+
+### Development Setup
+
+1. **Clone and setup**:
+   ```bash
+   git clone https://github.com/pmannion/nuclear-reactor-management.git
+   cd nuclear-reactor-management
+   bundle install
+   ```
+
+2. **Database setup**:
+   ```bash
+   rails db:create
+   rails db:migrate
+   rails db:seed
+   ```
+
+3. **Run tests**:
+   ```bash
+   bundle exec rails test
+   ```
+
+4. **Start the application**:
+   ```bash
+   rails console
+   ```
+
+### Docker Support
+
+Build and run with Docker:
+```bash
+docker build -t nuclear-reactor-management .
+docker run -it nuclear-reactor-management rails console
+```
 
 ### Role Permissions
 
