@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+
+# Reactor Status Check Script
+# Usage: bin/reactor_status
+
+require_relative '../config/environment'
+
+# Run the comprehensive system check
+result = SystemCheck.run_reactor_test
+
+# Exit with error code if reactor is unsafe
+exit(result[:safe] ? 0 : 1)
