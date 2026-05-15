@@ -18,19 +18,8 @@ A Rails application for managing nuclear reactor operations with role-based acce
    bundle install
    ```
 
-2. **Database setup**:
-   ```bash
-   rails db:create
-   rails db:migrate
-   rails db:seed
-   ```
 
-3. **Run tests**:
-   ```bash
-   bundle exec rails test
-   ```
-
-4. **Start the application**:
+2. **Start the application**:
    ```bash
    rails console
    ```
