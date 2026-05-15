@@ -64,3 +64,5 @@
 {"timestamp":"2026-05-15T13:32:19.429Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"Reactor ID mismatch","reactor_id":9,"authorization_code":"RST-1008-1778851934-ABC123"}
 {"timestamp":"2026-05-15T13:34:06.258Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"Reactor ID mismatch","reactor_id":9,"authorization_code":"RST-1008-1778851977-ABC123"}
 {"timestamp":"2026-05-15T13:34:46.124Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"Code expired","reactor_id":9,"authorization_code":"RST-9-test-XYZ789"}
+{"timestamp":"2026-05-15T13:50:11.420Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"Code expired","reactor_id":9,"authorization_code":"RST-9-test-XYZ789"}
+{"timestamp":"2026-05-15T13:54:48.634Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"Reactor ID mismatch","reactor_id":9,"authorization_code":"RST-1008-1778853288-ABC123"}

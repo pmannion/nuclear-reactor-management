@@ -32,8 +32,6 @@ class ResetAuthorizationService
   def api_call(reactor_id, manager_user)
     sleep(rand(2..5))
 
-    response_type = 2
-
     case response_type
     when 1
       {
@@ -86,28 +84,28 @@ class ResetAuthorizationService
 
   def validate_authorization_response(body, expected_reactor_id)
     reset_code = body[:reset_code]
-debugger
-    # Check if reactor ID matches
+
     if body[:reactor_id] && body[:reactor_id] != expected_reactor_id
       return { success: false, error: "Reactor ID mismatch", code: reset_code }
     end
 
-    # Check if code is expired
     if body[:expires_at] && Time.parse(body[:expires_at].to_s) < Time.current
       return { success: false, error: "Code expired", code: reset_code }
     end
 
-    # Check if code format is valid
     unless reset_code.match?(/^RST-\d+-\d+-[A-Z0-9]+$/)
       return { success: false, error: "Invalid code format", code: reset_code }
     end
 
-    # Check manager authorization (if provided)
     if body[:authorized_manager] || body[:manager_email]
       return { success: false, error: "Manager mismatch", code: reset_code }
     end
 
-    # If we get here, somehow the code passed all checks (this shouldn't happen with our broken API)
+    # If we get here, the code passed all checks.
     { success: true, error: nil, code: reset_code }
+  end
+
+  def response_type
+    rand(1..4)
   end
 end

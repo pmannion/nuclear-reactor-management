@@ -68,7 +68,7 @@ Managers must perform daily maintenance to ensure reactor safety:
 
 ```bash
 rails console
-manager = User.find_by(email: 'manager@nuclear.com')
+manager = User.find_by(email: "manager@reactor.com")
 manager.perform_daily_maintenance
 ```
 
