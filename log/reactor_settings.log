@@ -43,3 +43,24 @@
 
 
 
+{"timestamp":"2026-05-15T12:50:43.659Z","user":"Sarah Johnson","user_role":"manager","changes":{"id":[null,9],"max_power":[null,1800],"min_power":[null,200],"temperature":[null,850],"status":[null,"normal"],"updated_by":[null,60],"maintenance_temperature_offset":[null,200]}}
+{"timestamp":"2026-05-15T12:50:43.661Z","user":"Sarah Johnson","user_role":"manager","changes":{"max_power":[1800,2500],"temperature":[850,4000],"status":["normal","critical"]}}
+{"timestamp":"2026-05-15T12:50:46.670Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"Invalid code format","reactor_id":9,"authorization_code":"INVALID_FORMAT_CODE_123"}
+{"timestamp":"2026-05-15T12:50:51.680Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"Invalid code format","reactor_id":9,"authorization_code":"INVALID_FORMAT_CODE_123"}
+{"timestamp":"2026-05-15T12:50:53.689Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"Reactor ID mismatch","reactor_id":9,"authorization_code":"RST-1008-1778849453-ABC123"}
+{"timestamp":"2026-05-15T12:50:57.701Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"API timeout","reactor_id":9,"authorization_code":"none"}
+{"timestamp":"2026-05-15T12:58:11.791Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"Code expired","reactor_id":9,"authorization_code":"RST-9-1778846291-XYZ789"}
+{"timestamp":"2026-05-15T12:58:30.902Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"API timeout","reactor_id":9,"authorization_code":"none"}
+{"timestamp":"2026-05-15T13:02:30.487Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"Invalid code format","reactor_id":9,"authorization_code":"INVALID_FORMAT_CODE_123"}
+{"timestamp":"2026-05-15T13:10:25.636Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"API server error","reactor_id":9,"authorization_code":"none"}
+{"timestamp":"2026-05-15T13:12:49.901Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"Manager mismatch","reactor_id":9,"authorization_code":"RST-9-1778850769-DEF456"}
+{"timestamp":"2026-05-15T13:13:06.550Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"Manager mismatch","reactor_id":9,"authorization_code":"RST-9-1778850786-DEF456"}
+{"timestamp":"2026-05-15T13:14:10.586Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"Manager mismatch","reactor_id":9,"authorization_code":"RST-9-1778850793-DEF456"}
+{"timestamp":"2026-05-15T13:19:11.935Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"Code expired","reactor_id":9,"authorization_code":"RST-9-1778847291-XYZ789"}
+{"timestamp":"2026-05-15T13:19:30.840Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"Manager mismatch","reactor_id":9,"authorization_code":"RST-9-1778851166-DEF456"}
+{"timestamp":"2026-05-15T13:19:45.420Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"Code expired","reactor_id":9,"authorization_code":"RST-9-1778847582-XYZ789"}
+{"timestamp":"2026-05-15T13:21:42.466Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"Reactor ID mismatch","reactor_id":9,"authorization_code":"RST-1008-1778851255-ABC123"}
+{"timestamp":"2026-05-15T13:31:34.093Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"Reactor ID mismatch","reactor_id":9,"authorization_code":"RST-1008-1778851859-ABC123"}
+{"timestamp":"2026-05-15T13:32:19.429Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"Reactor ID mismatch","reactor_id":9,"authorization_code":"RST-1008-1778851934-ABC123"}
+{"timestamp":"2026-05-15T13:34:06.258Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"Reactor ID mismatch","reactor_id":9,"authorization_code":"RST-1008-1778851977-ABC123"}
+{"timestamp":"2026-05-15T13:34:46.124Z","user":"Sarah Johnson","user_role":"manager","action":"reactor_reset_authorization_failed","reason":"Code expired","reactor_id":9,"authorization_code":"RST-9-test-XYZ789"}

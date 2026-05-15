@@ -1,3 +1,5 @@
+require_relative '../services/reset_authorization_service'
+
 class Setting < ApplicationRecord
   belongs_to :user, foreign_key: 'updated_by'
 
@@ -22,10 +24,8 @@ class Setting < ApplicationRecord
     setting = new(attributes.merge(updated_by: user.id))
 
     if setting.save
-      puts "✅ Setting created successfully by #{user.name} (#{user.role})"
       setting
     else
-      puts "❌ Failed to create setting: #{setting.errors.full_messages.join(', ')}"
       nil
     end
   end
@@ -37,20 +37,14 @@ class Setting < ApplicationRecord
 
     # Check if engineer is trying to update reactor in critical state
     if status == 'critical' && user.engineer?
-      puts "🆘 CRITICAL STATE ACCESS DENIED"
-      puts "❌ Engineer #{user.name} cannot modify reactor settings while in critical state"
-      puts "🔧 Only a manager can run the reset command to restore normal operation"
-      puts "📋 Contact your manager immediately for reactor reset authorization"
       return nil
     end
 
     self.updated_by = user.id
 
     if update(attributes)
-      puts "✅ Setting updated successfully by #{user.name} (#{user.role})"
       self
     else
-      puts "❌ Failed to update setting: #{errors.full_messages.join(', ')}"
       nil
     end
   end
@@ -61,10 +55,8 @@ class Setting < ApplicationRecord
     end
 
     if destroy
-      puts "✅ Setting deleted successfully by #{user.name} (#{user.role})"
       true
     else
-      puts "❌ Failed to delete setting"
       false
     end
   end
@@ -72,7 +64,7 @@ class Setting < ApplicationRecord
   # Convenience methods for common operations
   def self.emergency_shutdown(user)
     current_setting = first
-    return puts "❌ No settings found" unless current_setting
+    return nil unless current_setting
 
     current_setting.update_reactor_setting(user, {
       status: 'maintenance',
@@ -84,7 +76,7 @@ class Setting < ApplicationRecord
 
   def self.set_normal_operation(user)
     current_setting = first
-    return puts "❌ No settings found" unless current_setting
+    return nil unless current_setting
 
     current_setting.update_reactor_setting(user, {
       status: 'normal',
@@ -95,23 +87,91 @@ class Setting < ApplicationRecord
   end
 
   def self.reset(user)
-    unless user.is_a?(User)
-      raise ArgumentError, "First parameter must be a User object"
-    end
+
 
     unless user.manager?
-      puts "❌ Access denied: Only managers can perform reactor reset"
       return false
     end
 
     current_setting = first
-    return puts "❌ No settings found" unless current_setting
+    return nil unless current_setting
 
-    current_setting.update_reactor_setting(user, {
+    # Generate a reactor ID for this reset request (simulating a real reactor identifier)
+    reactor_id = current_setting.id || 1001
+
+    # Request authorization from the external API
+    auth_result = ResetAuthorizationService.request_reset_code(reactor_id, user)
+
+    unless auth_result[:success]
+      puts "Reactor reset failed"
+      puts "Contact Nuclear Safety Authority support: 1-800-NUCLEAR"
+      puts "🔄 Try again later or check API status"
+
+      # Log the failed authorization attempt
+      log_entry = {
+        timestamp: Time.current,
+        user: user.name,
+        user_role: user.role,
+        action: "reactor_reset_authorization_failed",
+        reason: auth_result[:error],
+        reactor_id: reactor_id,
+        authorization_code: auth_result[:code] || "none"
+      }
+
+      log_file_path = Rails.root.join('log', 'reactor_settings.log')
+      File.open(log_file_path, 'a') do |file|
+        file.puts log_entry.to_json
+      end
+
+      return false
+    end
+
+    # If authorization somehow succeeded (which shouldn't happen with our broken API)
+    # Log the successful authorization code
+    auth_log_entry = {
+      timestamp: Time.current,
+      user: user.name,
+      user_role: user.role,
+      action: "reactor_reset_authorization_received",
+      reactor_id: reactor_id,
+      authorization_code: auth_result[:code]
+    }
+
+    log_file_path = Rails.root.join('log', 'reactor_settings.log')
+    File.open(log_file_path, 'a') do |file|
+      file.puts auth_log_entry.to_json
+    end
+
+    # Perform the actual reset
+    result = current_setting.update_reactor_setting(user, {
       max_power: 1200,
       temperature: 800,
       status: 'normal'
     })
+
+    if result
+      # Log the successful reactor reset with authorization code
+      reset_log_entry = {
+        timestamp: Time.current,
+        user: user.name,
+        user_role: user.role,
+        action: "reactor_reset_completed",
+        reactor_id: reactor_id,
+        authorization_code: auth_result[:code],
+        new_settings: {
+          max_power: 1200,
+          temperature: 800,
+          status: 'normal'
+        }
+      }
+
+      log_file_path = Rails.root.join('log', 'reactor_settings.log')
+      File.open(log_file_path, 'a') do |file|
+        file.puts reset_log_entry.to_json
+      end
+    end
+
+    result
   end
 
   # Daily maintenance operations - Critical for reactor safety
@@ -121,28 +181,19 @@ class Setting < ApplicationRecord
     end
 
     unless user.manager?
-      puts "❌ Access denied: Only managers can perform daily maintenance"
       return false
     end
 
     current_setting = first
-    return puts "❌ No settings found" unless current_setting
+    return nil unless current_setting
 
     # Check if system is in critical state
     if current_setting.status == 'critical'
-      puts "🆘 CRITICAL STATE MAINTENANCE DENIED"
-      puts "❌ Daily maintenance cannot be performed while system is critical"
-      puts "🔧 System reset is required before maintenance can proceed"
-      puts "📋 Contact manager to perform reactor reset first"
-
       # Log the critical state maintenance attempt
       Rails.logger.error "Daily maintenance attempted while system critical - User: #{user.name} (#{user.role})"
 
       return false
     end
-
-    # Perform maintenance cycle: set to maintenance mode briefly, then back to normal
-    puts "🔧 Starting daily maintenance cycle..."
 
     # Set to maintenance mode
     current_setting.update_reactor_setting(user, {
@@ -151,27 +202,14 @@ class Setting < ApplicationRecord
       maintenance_temperature_offset: 0
     })
 
-    # After a brief moment, return to normal operation with updated maintenance date
-    puts "✅ Daily maintenance completed successfully"
-    puts "📅 Next maintenance due: #{Date.current + 1.day}"
-
     current_setting
   end
 
   def self.check_maintenance_status
     current_setting = first
-    return puts "❌ No settings found" unless current_setting
+    return nil unless current_setting
 
-    if current_setting.maintenance_overdue?
-      puts "⚠️  WARNING: Daily maintenance is overdue!"
-      puts "📅 Last maintenance: #{current_setting.last_maintenance_date || 'Never'}"
-      puts "🌡️  Temperature may spike above safe levels"
-      puts "🚨 Contact manager immediately to perform maintenance"
-    else
-      puts "✅ Maintenance status: Up to date"
-      puts "📅 Last maintenance: #{current_setting.last_maintenance_date}"
-      puts "📅 Next maintenance due: #{(current_setting.last_maintenance_date + 1.day) if current_setting.last_maintenance_date}"
-    end
+    current_setting.maintenance_overdue?
   end
 
   def maintenance_overdue?

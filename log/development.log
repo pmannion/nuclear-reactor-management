@@ -3334,3 +3334,67 @@ Reset attempt by Engineer: 67, temperature: 1800 - result: update FAIL
   [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
   [1m[36mSetting Load (0.4ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
 Daily maintenance attempted while system critical - User: Sarah Johnson (manager)
+  [1m[36mSetting Load (0.2ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ? LIMIT ?[0m  [["role", "manager"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."role" = ? LIMIT ?[0m  [["role", "engineer"], ["LIMIT", 1]]
+  [1m[36mSetting Load (0.1ms)[0m  [1m[34mSELECT "settings".* FROM "settings"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSetting Destroy (0.4ms)[0m  [1m[31mDELETE FROM "settings" WHERE "settings"."id" = ?[0m  [["id", 8]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/setting.rb:26:in 'Setting.create_reactor_setting'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/models/setting.rb:26:in 'Setting.create_reactor_setting'
+Reactor temperature spike due to overdue maintenance: 850°C (Infinity days overdue)
+  [1m[36mSetting Create (0.1ms)[0m  [1m[32mINSERT INTO "settings" ("max_power", "min_power", "temperature", "status", "updated_by", "created_at", "updated_at", "last_maintenance_date", "maintenance_temperature_offset") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["max_power", 1800], ["min_power", 200], ["temperature", 850], ["status", "normal"], ["updated_by", 60], ["created_at", "2026-05-15 12:50:43.659277"], ["updated_at", "2026-05-15 12:50:43.659277"], ["last_maintenance_date", nil], ["maintenance_temperature_offset", 200]]
+  ↳ app/models/setting.rb:26:in 'Setting.create_reactor_setting'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/models/setting.rb:289:in 'Setting#log_changes'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/models/setting.rb:290:in 'Setting#log_changes'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/setting.rb:26:in 'Setting.create_reactor_setting'
+Reactor temperature spike due to overdue maintenance: 1050°C (Infinity days overdue)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/models/setting.rb:51:in 'Setting#update_reactor_setting'
+  [1m[36mSetting Update (0.3ms)[0m  [1m[33mUPDATE "settings" SET "max_power" = ?, "temperature" = ?, "status" = ?, "updated_at" = ? WHERE "settings"."id" = ?[0m  [["max_power", 2500], ["temperature", 4000], ["status", "critical"], ["updated_at", "2026-05-15 12:50:43.661236"], ["id", 9]]
+  ↳ app/models/setting.rb:51:in 'Setting#update_reactor_setting'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/models/setting.rb:289:in 'Setting#log_changes'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/models/setting.rb:290:in 'Setting#log_changes'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/models/setting.rb:51:in 'Setting#update_reactor_setting'
+  [1m[36mSetting Load (0.2ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mSetting Load (0.0ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/setting.rb:109:in 'Setting.reset'
+  [1m[36mSetting Load (0.3ms)[0m  [1m[34mSELECT "settings".* FROM "settings" WHERE "settings"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mSetting Load (0.1ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/setting.rb:109:in 'Setting.reset'
+  [1m[36mCACHE Setting Load (0.1ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/setting.rb:109:in 'Setting.reset'
+  [1m[36mCACHE Setting Load (0.1ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/models/setting.rb:109:in 'Setting.reset'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSetting Load (0.1ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSetting Load (0.3ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSetting Load (0.1ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSetting Load (0.2ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSetting Load (0.4ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSetting Load (0.2ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSetting Load (0.1ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSetting Load (0.2ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSetting Load (0.1ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSetting Load (0.1ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSetting Load (0.3ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSetting Load (0.1ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSetting Load (0.1ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSetting Load (0.1ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSetting Load (0.2ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSetting Load (0.2ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSetting Load (0.1ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mSetting Load (0.0ms)[0m  [1m[34mSELECT "settings".* FROM "settings" ORDER BY "settings"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
